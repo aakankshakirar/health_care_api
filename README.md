@@ -20,7 +20,7 @@ git clone https://github.com/aakankshakirar/health_care_api.git
 composer install
 ```
 
-3. Database Setup: Configure the database connection in the .env file and create a MySQL database.
+3. Database Setup: Rename .env.example file. Create the mysql database. Change DB_DATABASE, DB_USERNAME and DB_PASSWORD witht the actual values.
 
 4. Run Migrations and Seeders: Run database migrations and seeders to set up the database schema and populate initial data:
 
@@ -49,30 +49,46 @@ php artisan passport:client --personal
 php artisan db:seed 
 ```
 
+8. Generate the application key.
+
+```bash
+php artisan key:generate 
+```
+
 This command will seed two tables: User table and Healthcare professional table
 
-8. Do the testing through postman. Collection can be found in root directory.
+9. Start the Laravel development server
+
+```bash
+php artisan serve
+```
+
+10. Do the testing through postman. Collection can be found in root directory.
 
 
-9. Run Tests: At last, Execute unit tests to ensure the correctness of the application:
+## Usage
+
+- **POST /api/register: Register a new user.**
+
+- **POST /api/login: Log in with user credentials and obtain an access token**
+
+- **GET /api/healthcare-professionals: Retrieve a list of all available healthcare professionals.**
+
+- **POST /api/book-appointment: Book an appointment with a healthcare professional.**
+
+- **GET /api/user/appointments: View all appointments for a user.**
+
+- **DELETE /api/cancel-appointment/{appointmentId}: Cancel an appointment by its ID.**
+
+## Testing
+
+Run Tests: At last, Execute unit tests to ensure the correctness of the application:
 
 Notice: During unit testing, the RefreshDatabase trait will clear the database, potentially requiring you to reseed it afterwards.
 
 ```bash
 php artisan test --testsuite=Unit
 ```
-
-
-## Usage
-
-- **POST /api/register: Register a new user.**
-- **POST /api/login: Log in with user credentials and obtain an access token**
-- **GET /api/professionals: Retrieve a list of all available healthcare professionals.**
-- **POST /api/book-appointment: Book an appointment with a healthcare professional.**
-- **GET /api/user/appointments: View all appointments for a user.**
-- **DELETE /api/cancel-appointment/{appointmentId}: Cancel an appointment by its ID.**
-
-## Testing
 
 Book an Appointment Test:
 
