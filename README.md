@@ -28,14 +28,6 @@ composer install
 php artisan migrate
 ```
 
-```bash
-php artisan db:seed --class=UserSeeder
-```
-
-```bash
-php artisan db:seed --class=HealthcareProfessionalSeeder
-```
-
 5. Install Laravel Passport: Install Laravel Passport for API authentication:
 
 ```bash
@@ -51,7 +43,18 @@ php artisan passport:client --personal
 
 ```
 
-7. Run Tests: Execute unit tests to ensure the correctness of the application:
+7. Seed the database to get some dummy data
+
+```bash
+php artisan db:seed 
+```
+
+This command will seed two tables: User table and Healthcare professional table
+
+8. Do the testing through postman. Collection can be found in root directory.
+
+
+9. Run Tests: At last, Execute unit tests to ensure the correctness of the application:
 
 Notice: During unit testing, the RefreshDatabase trait will clear the database, potentially requiring you to reseed it afterwards.
 
