@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "b3a1b3d2-8675-43ef-bad1-9aa460eb3981",
+		"name": "HealthCare App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "niyati1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password_confirmation",
+							"value": "admin123",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "niyati_sengar@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password_confirmation",
+									"value": "admin123",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.15"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 14 Mar 2024 18:32:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "56"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": {\n        \"id\": 6,\n        \"name\": \"NiyatiSengar\",\n        \"email\": \"niyati_sengar@gmail.com\",\n        \"email_verified_at\": null,\n        \"created_at\": \"2024-03-14T18:01:11.000000Z\",\n        \"updated_at\": \"2024-03-14T18:01:11.000000Z\"\n    },\n    \"access_token\": {\n        \"name\": \"authToken\",\n        \"abilities\": [\n            \"*\"\n        ],\n        \"expires_at\": null,\n        \"tokenable_id\": 6,\n        \"tokenable_type\": \"App\\\\Models\\\\User\",\n        \"updated_at\": \"2024-03-14T18:32:14.000000Z\",\n        \"created_at\": \"2024-03-14T18:32:14.000000Z\",\n        \"id\": 3\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"niyati_sengar\",\n\t\"email\":\"niyati1@gmail.com\",\n\t\"password\":\"admin123\",\n\t\"password_confirmation\":\"admin123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Health Care Professional",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/healthcare-professionals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"healthcare-professionals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book Appointment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTViOTE1NmJhYjNiZGE3N2ZlY2E2NzBkNjkyZDI3ZGIzNDZmOGQyZDQ2NmNiNmI5OTFkZGMyMGJjNjk2ODk4ZTA0N2Q5NDlkNjkxNTE3MjQiLCJpYXQiOjE3MTA2MDE2ODUuMTQ5MzY1LCJuYmYiOjE3MTA2MDE2ODUuMTQ5MzY4LCJleHAiOjE3NDIxMzc2ODUuMTE3MDY3LCJzdWIiOiIxMCIsInNjb3BlcyI6W119.RFcRIEo_U5-HWDXvVE-yyxVQ9IcLR9ztEJAdkvwmw2Ocr2YcohD_UHK4SYQasw7Trcug7yMnnzBNNUzT62cS9jmPhIiLVehySM-dVP5yuiG6_QrFrIfMcWafpV4jaceDEYZLx56GoI9EKiz-VVXcuuCYUqLxZrS4YPrzM8DKQxfQnVUYvDauZXAfyDzvTHEkz566o28GN2-3RD8_mw7Jr6uygyNMAaa-4p0cO4NY92bwk19E2RKdmDbOeD6lokO-i-p2ZAozfiE30kbC_TtlFxry1VCqnIjDtZjD7bh7koVjirS5QMjv5fXGiHuEkqf1myTk_q5Kr9jV3WiN3FJNWNQUlvL-7p3nhi8CktIe7DokXMOvfa9DWksVlKIan-izRafyLraNkht8hHiHhnf3JyUwfhayAjuET0KnP3l6yhTcwPxIhYWcgvOFd16jRLZAXTOv6J0lMd6HKOqitLFlyRXQh5JBSWyzTF_v9-34K9jHe-XcLWkIbu3uFU0mYjdCbZNIP-olUzQMqQUDdQKtt_hxNbusAeB1YtambiZRDyyJJWTkGM41-D3ZtTic6_1O5K7pCdkanRJ49mJfGGmZQgVbWiZbbMdU-7RCx1guREamvpG9zsbhFd7zjszeX9YbpIXvlA4BGi9J87xoB4unC9mfe-bJlj2SfST5Iu6tq0Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"healthcare_professional_id\": 6,\n    \"appointment_start_time\": \"2024-03-19 11:30:00\",\n    \"appointment_end_time\": \"2024-03-19 12:00:00\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/book-appointment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"book-appointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View all appointments for a user.",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTViOTE1NmJhYjNiZGE3N2ZlY2E2NzBkNjkyZDI3ZGIzNDZmOGQyZDQ2NmNiNmI5OTFkZGMyMGJjNjk2ODk4ZTA0N2Q5NDlkNjkxNTE3MjQiLCJpYXQiOjE3MTA2MDE2ODUuMTQ5MzY1LCJuYmYiOjE3MTA2MDE2ODUuMTQ5MzY4LCJleHAiOjE3NDIxMzc2ODUuMTE3MDY3LCJzdWIiOiIxMCIsInNjb3BlcyI6W119.RFcRIEo_U5-HWDXvVE-yyxVQ9IcLR9ztEJAdkvwmw2Ocr2YcohD_UHK4SYQasw7Trcug7yMnnzBNNUzT62cS9jmPhIiLVehySM-dVP5yuiG6_QrFrIfMcWafpV4jaceDEYZLx56GoI9EKiz-VVXcuuCYUqLxZrS4YPrzM8DKQxfQnVUYvDauZXAfyDzvTHEkz566o28GN2-3RD8_mw7Jr6uygyNMAaa-4p0cO4NY92bwk19E2RKdmDbOeD6lokO-i-p2ZAozfiE30kbC_TtlFxry1VCqnIjDtZjD7bh7koVjirS5QMjv5fXGiHuEkqf1myTk_q5Kr9jV3WiN3FJNWNQUlvL-7p3nhi8CktIe7DokXMOvfa9DWksVlKIan-izRafyLraNkht8hHiHhnf3JyUwfhayAjuET0KnP3l6yhTcwPxIhYWcgvOFd16jRLZAXTOv6J0lMd6HKOqitLFlyRXQh5JBSWyzTF_v9-34K9jHe-XcLWkIbu3uFU0mYjdCbZNIP-olUzQMqQUDdQKtt_hxNbusAeB1YtambiZRDyyJJWTkGM41-D3ZtTic6_1O5K7pCdkanRJ49mJfGGmZQgVbWiZbbMdU-7RCx1guREamvpG9zsbhFd7zjszeX9YbpIXvlA4BGi9J87xoB4unC9mfe-bJlj2SfST5Iu6tq0Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/user/appointments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Appointment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWViYWY2MWU5OWYwYTA4OGFkYWRjMzMzNjYxM2FhMzM1NWU1Nzk4YmZlODY1Nzk1MjljOTNiZjAyMTc2ZGIxN2I1MTMwMzk1MDk1MTRlMWMiLCJpYXQiOjE3MTA1MjM0MTQuMzA3MjQxLCJuYmYiOjE3MTA1MjM0MTQuMzA3MjQzLCJleHAiOjE3NDIwNTk0MTQuMjkwMzUzLCJzdWIiOiI5Iiwic2NvcGVzIjpbXX0.LBpUG2DAB0ZE_MCghjBqYixIg2HjpCZQz9FJnx819y4C92HVu7-f3oVDQN3qICO0XhHnoXKtNsyQkbMd4DoCihMDJ8b5j5Hnt0A87-VrlHalnSqULruOKaWK9QXKNrDuapXIfawStsQ5bam0ym1_bY3vfc4Al-Pbg0klDqWJ7EX5ABNNgkUrcQVsVDPCdt8XE9EzKYMwXbU_TIlECxg9nj-ebBM40nM3CGoZvuc0u51MhOABOuWOKKIyb6CGRhDWt-cLrSFm8CNSebS6r12UkbK1xX8sD36j4f0FwS5N-pIrAfc8-lrVzhXojsq1fQ7BV_X3TjPoFtj9oo5ANiElF3ollgFR3VXM9DqaQ-oAAHb0ahLpJbe7PgCtTKNNtgcRTZpOKMGA_tO-lWcn5AWz2XVcaKEtZFOQlCbQ9FMbN3RGLfT0SmB20fVSvAZpatNPeaX184stJd3jo7EExuekGPTepGJRKghlCSQ1GFeUtmpdV3sNFEoEGVZtsPNlycpPuUVIxCXeV6U9Al10jISLoGQSzCJzdkyrtFvZ82PbAy8r8bW3ncDCwrDZbKSxjh9QcYbc95ghCK1YHlqRahi1xqgyMX7Ci_xewqWNWHhvK6xM9sh0zh2Fi6yYqRQxfKT6atx2N18SiSSmux4yJiV_wWW1Ib6pWY3p-d5aCv8j0Vg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/cancel-appointment/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"cancel-appointment",
+						"8"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
